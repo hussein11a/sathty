@@ -1,1 +1,46 @@
+// هذا الملف خاص بأنماط الروابط الثابتة (Permalinks) التي تظهر بجانب العناوين.
+// يسمح للمستخدم بنسخ رابط مباشر إلى قسم معين في الصفحة.
+// يتم تضمينه عادةً في ملف SCSS رئيسي.
+
+.heading-permalink {
+  // النمط الأساسي للرابط الثابت (مثل أيقونة أو نص مخفي)
+  .header-permalink {
+    font-size: 0.8em; // حجم أصغر
+    margin-right: 5px; // مسافة عن العنوان
+    opacity: 0; // إخفاء افتراضيًا
+    transition: opacity 0.2s ease-in-out;
+    text-decoration: none;
+    color: var(--secondary-text-color, #777);
+
+    // أيقونة السلسلة (Link icon) أو الهاش (#)
+    &::before {
+      content: '#'; // يمكن استبدالها بـ '\1F517' (رمز السلسلة) أو استخدام SVG
+      font-weight: normal;
+      margin-left: 3px; // مسافة صغيرة
+    }
+
+    &:hover {
+      color: var(--primary-color, #007bff);
+    }
+  }
+
+  // إظهار الرابط الثابت عند التحويم على العنوان نفسه
+  h1:hover &,
+  h2:hover &,
+  h3:hover &,
+  h4:hover &,
+  h5:hover &,
+  h6:hover & {
+    .header-permalink {
+      opacity: 1; // إظهار الرابط عند التحويم على العنوان
+    }
+  }
+
+  // يمكن أيضًا جعله مرئيًا دائمًا على أحجام الشاشات الكبيرة
+  @media (min-width: 992px) {
+    .header-permalink {
+      // opacity: 1; // إذا أردت إظهاره دائمًا على سطح المكتب
+    }
+  }
+}
 
