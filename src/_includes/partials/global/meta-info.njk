@@ -1,1 +1,43 @@
+{#
+  هذا الملف هو مكون جزئي (Partial Component) يحتوي على علامات الـ Meta الأساسية
+  التي يتم تضمينها في قسم <head> من كل صفحة HTML.
+  هي ضرورية لتحسين محركات البحث (SEO) وتحديد كيفية عرض الصفحة على وسائل التواصل الاجتماعي
+  (Open Graph و Twitter Cards).
+#}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{% if title %}{{ title }} | {% endif %}{{ tokens.site_name }}</title>
+<meta name="description" content="{% if description %}{{ description }}{% else %}{{ tokens.site_description }}{% endif %}">
+<meta name="keywords" content="سطحة, هيدروليك, نقل سيارات, سحب سيارات, صيانة, تقديرات, فحص دوري, نقل بين المدن, زلاجات, السعودية, نقل آمن, خدمة سريعة">
+<meta name="author" content="{{ tokens.site_name }}">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="{{ tokens.site_url }}{{ page.url }}"> {# رابط الصفحة الحالي #}
+<meta property="og:title" content="{% if title %}{{ title }} | {% endif %}{{ tokens.site_name }}">
+<meta property="og:description" content="{% if description %}{{ description }}{% else %}{{ tokens.site_description }}{% endif %}">
+<meta property="og:image" content="{{ tokens.site_url }}assets/images/og-image.jpg"> <meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="{{ tokens.site_url }}{{ page.url }}">
+<meta property="twitter:title" content="{% if title %}{{ title }} | {% endif %}{{ tokens.site_name }}">
+<meta property="twitter:description" content="{% if description %}{{ description }}{% else %}{{ tokens.site_description }}{% endif %}">
+<meta property="twitter:image" content="{{ tokens.site_url }}assets/images/twitter-image.jpg"> <link rel="icon" href="/assets/images/favicon.png" type="image/png">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "{{ tokens.site_name }}",
+  "description": "{{ tokens.site_description }}",
+  "url": "{{ tokens.site_url }}",
+  "telephone": "{{ tokens.phone_number }}",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "الرياض",
+    "addressRegion": "الرياض",
+    "addressCountry": "SA"
+  },
+  "openingHours": "{{ site.contact_hours.start }}-{{ site.contact_hours.end }}",
+  "serviceType": "نقل سيارات",
+  "image": "{{ tokens.site_url }}assets/images/logo.png"
+}
+</script>
 
