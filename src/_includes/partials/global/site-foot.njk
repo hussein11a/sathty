@@ -1,1 +1,51 @@
+{#
+  هذا الملف هو مكون جزئي (Partial Component) يمثل الجزء السفلي من هيكل الصفحة.
+  يتم تضمينه عادةً قبل إغلاق وسم </body> في `base.njk`.
+  يحتوي على روابط لملفات JavaScript، والأزرار العائمة، وزر الرجوع للأعلى.
+#}
+{# الأزرار العائمة للاتصال والواتساب (من partials) #}
+{% include 'partials/floating-buttons.njk' %}
+
+{# زر الرجوع للأعلى #}
+<div class="back-to-top">
+    {% include 'icons/arrow.svg' %} {# استخدام أيقونة السهم #}
+</div>
+
+{# تضمين تذييل الصفحة (Footer) من المجلد partials #}
+{% include 'partials/footer.njk' %}
+
+<script src="/assets/js/main.js"></script>
+<script src="/assets/js/lazyload.js"></script>
+<script src="/assets/js/protect.js"></script>
+<script>
+    // كود JavaScript لزر "الرجوع للأعلى"
+    const backToTopButton = document.querySelector(".back-to-top");
+    if (backToTopButton) {
+        window.addEventListener("scroll", () => {
+            if (window.pageYOffset > 300) { // أظهر الزر بعد التمرير 300 بكسل
+                backToTopButton.style.display = "block";
+            } else {
+                backToTopButton.style.display = "none";
+            }
+        });
+
+        backToTopButton.addEventListener("click", () => {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth" // تمرير سلس
+            });
+        });
+    }
+
+    // تسجيل Service Worker
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/service-worker.js').then(function(registration) {
+          console.log('ServiceWorker registration successful with scope: ', registration.scope);
+        }, function(err) {
+          console.log('ServiceWorker registration failed: ', err);
+        });
+      });
+    }
+</script>
 
