@@ -1,1 +1,14 @@
+{#
+  هذا الملف هو مكون جزئي (Partial Component) مخصص لعرض قائمة التنقل الرئيسية للموقع.
+  يُستخدم عادةً داخل رأس الصفحة (Header) لتوفير روابط للصفحات الأساسية.
+  يستخدم بيانات التنقل من `_data/navigation.json`.
+#}
+<nav class="main-nav">
+  <ul class="nav-list">
+    {% import 'macros/site.njk' as siteMacros %} {# استيراد ماكرو navLink #}
+    {% for item in navigation %}
+      {{ siteMacros.navLink(item, page.url) }} {# استخدام الماكرو لتوليد كل عنصر رابط #}
+    {% endfor %}
+  </ul>
+</nav>
 
