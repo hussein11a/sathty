@@ -1,1 +1,121 @@
+// هذا هو ملف الأنماط العامة (Global Styles) للمشروع.
+// يحتوي على أنماط إعادة تعيين CSS، أنماط عامة للعناصر الأساسية في HTML،
+// ويستورد جميع المكونات والأدوات الأخرى.
+
+// 1. إعادة تعيين CSS (Reset/Normalize)
+// يمكن استخدام Normalize.css أو إعادة تعيين بسيط.
+// هذا مثال على إعادة تعيين بسيط (يمكن استبداله بـ Normalize.css):
+* {
+  box-sizing: border-box; // لضمان حساب العرض والحشو والحدود بشكل صحيح
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth; // لجعل التمرير إلى الروابط الداخلية سلساً
+}
+
+body {
+  font-family: 'Arial', sans-serif; // سيتم تحديدها بشكل أدق في _typography.scss
+  font-size: 16px; // سيتم تحديدها بشكل أدق في _typography.scss
+  line-height: 1.6; // سيتم تحديدها بشكل أدق في _typography.scss
+  color: var(--text-color); // استخدام متغير اللون
+  background-color: var(--background-color); // استخدام متغير الخلفية
+  transition: background-color 0.3s ease, color 0.3s ease; // انتقال سلس للألوان عند تبديل الثيم
+  direction: rtl; // لغة عربية
+  text-align: right; // محاذاة النص لليمين
+}
+
+// 2. أنماط عامة للعناصر الأساسية
+img {
+  max-width: 100%;
+  height: auto;
+  display: block; // لإزالة الهامش السفلي الافتراضي للصور
+}
+
+a {
+  text-decoration: none; // الافتراضي هو عدم التسطير
+  color: var(--link-color);
+  transition: color 0.2s ease;
+}
+
+ul, ol {
+  list-style-position: inside; // لجعل رموز القائمة داخل النص
+  padding: 0; // إزالة الحشو الافتراضي
+  margin: 1em 0;
+}
+
+// 3. أنماط الحاويات العامة
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+
+  @media (max-width: 992px) {
+    padding: 0 15px;
+  }
+}
+
+.section-padding {
+  padding: 60px 0; // حشو قياسي للأقسام
+  @media (max-width: 768px) {
+    padding: 40px 0;
+  }
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-left {
+  text-align: left;
+}
+
+// 4. فئات المساعدات (Utility Classes) - يمكن نقلها إلى ملف utilities/_helpers.scss
+.mb-10 { margin-bottom: 10px; }
+.mb-20 { margin-bottom: 20px; }
+.mb-30 { margin-bottom: 30px; }
+.mt-10 { margin-top: 10px; }
+.mt-20 { margin-top: 20px; }
+
+// 5. استيراد المكونات والأدوات (Important!)
+// يجب أن تكون المسارات صحيحة لمجلداتك
+@import 'config';
+@import 'theme';
+@import 'typography';
+
+// استيراد المكسينات (Mixins)
+@import 'mixins/dark-mode';
+// @import 'mixins/media-queries'; // إذا كان لديك ملف mixins/media-queries.scss
+
+// استيراد الأدوات (Utilities)
+@import 'utilities/inner-wrapper';
+@import 'utilities/visually-hidden';
+@import 'utilities/wrapper';
+
+// استيراد المكونات (Components)
+@import 'components/button';
+@import 'components/form';
+@import 'components/heading-permalink';
+@import 'components/intro';
+@import 'components/nav';
+// @import 'components/pagination'; // احذفه إذا لم يكن له استخدام
+@import 'components/service-list'; // الاسم الجديد
+// @import 'components/post'; // احذفه أو أعد تسميته إلى service-detail.scss
+@import 'components/site-foot';
+@import 'components/site-head';
+@import 'components/skip-link';
+// @import 'components/syntax-highlighting'; // احذفه إذا لم يكن له استخدام
+@import 'components/video-player';
+
+// استيراد أنماط التخطيطات (Layouts) - إذا كان لديك ملفات لـ layouts
+// @import 'layouts/home';
+// @import 'layouts/archive';
+// @import 'layouts/contact';
+// @import 'layouts/page';
+// @import 'layouts/service-detail'; // إذا أنشأت هذا
 
