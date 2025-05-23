@@ -1,1 +1,63 @@
+// هذا الملف خاص بأنماط الجزء العلوي من رأس الموقع (Site Head).
+// يتضمن أنماط الهيدر الرئيسي، الشعار، واسم الموقع.
+// يتم تضمينه عادةً في ملف SCSS رئيسي.
+
+.header {
+  background-color: var(--header-bg-color, #ffffff);
+  border-bottom: 1px solid var(--border-color-light, #eee);
+  padding: 15px 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  position: sticky; // لتثبيت الهيدر عند التمرير
+  top: 0;
+  width: 100%;
+  z-index: 1000; // للتأكد من ظهوره فوق المحتوى
+
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .site-branding {
+    display: flex;
+    align-items: center;
+    text-decoration: none; // إزالة خط التسطير من رابط الشعار
+
+    .site-logo-link {
+      display: flex;
+      align-items: center;
+    }
+
+    .site-logo {
+      height: 50px; // حجم الشعار
+      margin-left: 10px; // مسافة بين الشعار والاسم
+      border-radius: 50%; // لجعل الشعار دائريًا إذا كان مربعًا
+
+      @media (max-width: 768px) {
+        height: 40px;
+        margin-left: 8px;
+      }
+    }
+
+    .site-name {
+      font-size: 1.8em;
+      font-weight: bold;
+      color: var(--heading-color, #333);
+      white-space: nowrap; // منع انكسار الاسم
+
+      @media (max-width: 768px) {
+        font-size: 1.4em;
+      }
+    }
+  }
+
+  // تضمين أنماط التنقل (nav) هنا أو استيرادها بشكل منفصل
+  .main-nav {
+    // أنماط التنقل التي تم تحديدها في _nav.scss
+  }
+
+  .menu-toggle {
+    // أنماط زر القائمة للجوال التي تم تحديدها في _nav.scss
+  }
+}
 
