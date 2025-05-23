@@ -1,1 +1,79 @@
+// هذا الملف خاص بالأنماط الأساسية للطباعة (Typography) في المشروع.
+// يحدد الخطوط، أحجام الخطوط، ارتفاعات الأسطر، وغيرها من خصائص النص.
+// يتم تضمينه عادةً في ملف SCSS رئيسي.
+
+body {
+  font-family: 'Arial', 'Helvetica Neue', 'Helvetica', 'sans-serif'; // خطوط عربية مفضلة
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text-color); // استخدام متغير اللون من الثيم
+  direction: rtl; // لغة عربية
+  text-align: right; // محاذاة النص لليمين
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Arial', 'Helvetica Neue', 'Helvetica', 'sans-serif'; // يمكن اختيار خط مختلف للعناوين
+  color: var(--heading-color); // استخدام متغير اللون من الثيم
+  margin-top: 1.5em;
+  margin-bottom: 0.8em;
+  font-weight: bold;
+  line-height: 1.3;
+}
+
+h1 { font-size: 2.8em; } // حوالي 44px
+h2 { font-size: 2.2em; } // حوالي 35px
+h3 { font-size: 1.8em; } // حوالي 28px
+h4 { font-size: 1.4em; } // حوالي 22px
+h5 { font-size: 1.2em; } // حوالي 19px
+h6 { font-size: 1em; }   // حوالي 16px
+
+p {
+  margin-bottom: 1em;
+}
+
+a {
+  color: var(--link-color);
+  text-decoration: none; // لا يوجد تسطير افتراضي
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: var(--link-hover-color);
+    text-decoration: underline; // تسطير عند التحويم
+  }
+}
+
+// أنماط للروابط داخل الفقرات
+p a {
+  text-decoration: underline; // روابط الفقرات مسطرة افتراضيًا
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+strong {
+  font-weight: bold;
+}
+
+em {
+  font-style: italic;
+}
+
+blockquote {
+  border-right: 4px solid var(--primary-color);
+  padding-right: 15px;
+  margin: 1.5em 0;
+  font-style: italic;
+  color: var(--secondary-text-color);
+}
+
+// الخطوط الموصى بها للعربية:
+// يمكن استيرادها من Google Fonts في ملف CSS أو باستخدام `@import`
+// @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;700&display=swap');
+
+// مثال على استخدام خط عربي:
+// body {
+//   font-family: 'Cairo', sans-serif;
+// }
 
