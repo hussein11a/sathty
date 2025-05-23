@@ -1,1 +1,216 @@
+---
+title: دليل الأنماط - سطحة هيدروليك
+layout: default
+permalink: /styleguide/
+eleventyExcludeFromCollections: true
+---
+
+<div class="container my-5">
+    <h1 class="text-center mb-5">دليل الأنماط - سطحة هيدروليك</h1>
+    <p class="lead text-center mb-5">
+        هذه الصفحة تعرض العناصر الأساسية لواجهة المستخدم وتصميم منصة سطحة هيدروليك.
+    </p>
+
+    ---
+
+    <section id="typography" class="mb-5">
+        <h2 class="mb-4">1. الطباعة (Typography)</h2>
+        <div class="p-4 border rounded bg-light">
+            <h1>عنوان H1 - خدمة سطحة هيدروليك الفورية</h1>
+            <p class="lead">سطحة هيدروليك: خدمة نقل السيارات الفورية والموثوقة في جميع أنحاء المملكة.</p>
+            <h2>عنوان H2 - لماذا تختارنا؟</h2>
+            <h3>عنوان H3 - الميزات الرئيسية</h3>
+            <h4>عنوان H4 - خدمة العملاء</h4>
+            <h5>عنوان H5 - اتصل بنا</h5>
+            <h6>عنوان H6 - تابعنا</h6>
+            <p>
+                هذه فقرة نصية عادية لعرض الخطوط والمسافات البادئة. تلتزم سطحة هيدروليك بتقديم أعلى مستويات الأمان والجودة في نقل سيارتك، مع فريق من السائقين المحترفين والمدربين.
+            </p>
+            <p class="small text-muted">
+                هذا نص صغير بتنسيق ثانوي.
+            </p>
+            <p><strong>نص عريض (Bold text)</strong> و <em>نص مائل (Italic text)</em>.</p>
+        </div>
+    </section>
+
+    ---
+
+    <section id="colors" class="mb-5">
+        <h2 class="mb-4">2. الألوان (Colors)</h2>
+        <div class="row">
+            <div class="col-md-3 mb-3">
+                <div class="p-3 border rounded text-white text-center" style="background-color: #007bff;">
+                    <p class="fw-bold">Primary</p>
+                    <small>#007bff</small>
+                </div>
+            </div>
+            <div class="col-md-3 mb-3">
+                <div class="p-3 border rounded text-white text-center" style="background-color: #28a745;">
+                    <p class="fw-bold">Success</p>
+                    <small>#28a745</small>
+                </div>
+            </div>
+            <div class="col-md-3 mb-3">
+                <div class="p-3 border rounded text-dark text-center" style="background-color: #ffc107;">
+                    <p class="fw-bold">Warning</p>
+                    <small>#ffc107</small>
+                </div>
+            </div>
+            <div class="col-md-3 mb-3">
+                <div class="p-3 border rounded text-white text-center" style="background-color: #dc3545;">
+                    <p class="fw-bold">Danger</p>
+                    <small>#dc3545</small>
+                </div>
+            </div>
+            <div class="col-md-3 mb-3">
+                <div class="p-3 border rounded text-dark text-center" style="background-color: #f8f9fa;">
+                    <p class="fw-bold">Light</p>
+                    <small>#f8f9fa</small>
+                </div>
+            </div>
+            <div class="col-md-3 mb-3">
+                <div class="p-3 border rounded text-white text-center" style="background-color: #343a40;">
+                    <p class="fw-bold">Dark</p>
+                    <small>#343a40</small>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    ---
+
+    <section id="buttons" class="mb-5">
+        <h2 class="mb-4">3. الأزرار (Buttons)</h2>
+        <div class="p-4 border rounded bg-light">
+            <button type="button" class="btn btn-primary me-2">زر أساسي</button>
+            <button type="button" class="btn btn-secondary me-2">زر ثانوي</button>
+            <button type="button" class="btn btn-success me-2">زر نجاح</button>
+            <button type="button" class="btn btn-danger me-2">زر خطر</button>
+            <button type="button" class="btn btn-warning me-2">زر تحذير</button>
+            <button type="button" class="btn btn-info me-2">زر معلومات</button>
+            <button type="button" class="btn btn-light me-2">زر فاتح</button>
+            <button type="button" class="btn btn-dark me-2">زر داكن</button>
+            <button type="button" class="btn btn-link me-2">زر رابط</button>
+            <hr>
+            <button type="button" class="btn btn-outline-primary me-2">مخطط أساسي</button>
+            <button type="button" class="btn btn-outline-secondary me-2">مخطط ثانوي</button>
+            <hr>
+            <button type="button" class="btn btn-primary btn-lg me-2">زر كبير</button>
+            <button type="button" class="btn btn-primary me-2">زر عادي</button>
+            <button type="button" class="btn btn-primary btn-sm me-2">زر صغير</button>
+            <hr>
+            <button type="button" class="btn btn-primary" disabled>زر معطل</button>
+        </div>
+    </section>
+
+    ---
+
+    <section id="forms" class="mb-5">
+        <h2 class="mb-4">4. عناصر النماذج (Form Elements)</h2>
+        <div class="p-4 border rounded bg-light">
+            <div class="mb-3">
+                <label for="exampleInputText" class="form-label">حقل نصي</label>
+                <input type="text" class="form-control" id="exampleInputText" placeholder="ادخل نص هنا">
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail" class="form-label">حقل بريد إلكتروني</label>
+                <input type="email" class="form-control" id="exampleInputEmail" placeholder="name@example.com">
+            </div>
+            <div class="mb-3">
+                <label for="exampleTextarea" class="form-label">مربع نص كبير</label>
+                <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
+            </div>
+            <div class="mb-3">
+                <label for="exampleSelect" class="form-label">قائمة منسدلة</label>
+                <select class="form-select" id="exampleSelect">
+                    <option selected>اختر...</option>
+                    <option value="1">خيار 1</option>
+                    <option value="2">خيار 2</option>
+                    <option value="3">خيار 3</option>
+                </select>
+            </div>
+            <div class="mb-3 form-check">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                <label class="form-check-label" for="exampleCheck1">خانة اختيار</label>
+            </div>
+            <div class="mb-3">
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="exampleRadio" id="exampleRadio1" checked>
+                    <label class="form-check-label" for="exampleRadio1">
+                        خيار راديو 1
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="exampleRadio" id="exampleRadio2">
+                    <label class="form-check-label" for="exampleRadio2">
+                        خيار راديو 2
+                    </label>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">إرسال النموذج</button>
+        </div>
+    </section>
+
+    ---
+
+    <section id="alerts" class="mb-5">
+        <h2 class="mb-4">5. التنبيهات (Alerts)</h2>
+        <div class="p-4 border rounded bg-light">
+            <div class="alert alert-primary" role="alert">
+                هذا تنبيه أساسي!
+            </div>
+            <div class="alert alert-success" role="alert">
+                هذا تنبيه نجاح! العملية اكتملت بنجاح.
+            </div>
+            <div class="alert alert-danger" role="alert">
+                هذا تنبيه خطر! حدث خطأ ما.
+            </div>
+            <div class="alert alert-warning" role="alert">
+                هذا تنبيه تحذير! يرجى مراجعة البيانات.
+            </div>
+            <div class="alert alert-info" role="alert">
+                هذا تنبيه معلومات!
+            </div>
+        </div>
+    </section>
+
+    ---
+
+    <section id="icons" class="mb-5">
+        <h2 class="mb-4">6. الأيقونات (Icons)</h2>
+        <p>يستخدم الموقع مكتبة <a href="https://fontawesome.com/" target="_blank">Font Awesome</a> للأيقونات.</p>
+        <div class="p-4 border rounded bg-light d-flex flex-wrap align-items-center">
+            <div class="text-center p-3">
+                <i class="fas fa-truck-moving fa-3x text-primary d-block mb-2"></i>
+                <small>Truck</small>
+            </div>
+            <div class="text-center p-3">
+                <i class="fas fa-map-marker-alt fa-3x text-success d-block mb-2"></i>
+                <small>Location</small>
+            </div>
+            <div class="text-center p-3">
+                <i class="fas fa-clock fa-3x text-info d-block mb-2"></i>
+                <small>Clock</small>
+            </div>
+            <div class="text-center p-3">
+                <i class="fas fa-phone-alt fa-3x text-danger d-block mb-2"></i>
+                <small>Phone</small>
+            </div>
+            <div class="text-center p-3">
+                <i class="fas fa-user-circle fa-3x text-warning d-block mb-2"></i>
+                <small>User</small>
+            </div>
+            <div class="text-center p-3">
+                <i class="fas fa-tools fa-3x text-secondary d-block mb-2"></i>
+                <small>Tools</small>
+            </div>
+            <div class="text-center p-3">
+                <i class="fas fa-search fa-3x text-dark d-block mb-2"></i>
+                <small>Search</small>
+            </div>
+        </div>
+    </section>
+
+</div>
+
 
