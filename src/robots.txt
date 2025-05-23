@@ -1,1 +1,15 @@
 
+# Robots.txt for Sat7a Hydraulic
+
+# Allow all web crawlers to access all pages by default
+User-agent: *
+Allow: /
+
+# Disallow specific paths for better control
+# Disallow: /admin/
+# Disallow: /private/
+# Disallow: /temp/
+
+# Specify the path to your sitemap.xml file
+# This helps search engines discover your pages more efficiently
+Sitemap: https://www.yourdomain.com/sitemap.xml
