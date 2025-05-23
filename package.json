@@ -1,1 +1,26 @@
+{
+  "name": "my-awesome-project",  // اسم مشروعك (يجب أن يكون فريداً وعلى شكل slug)
+  "version": "1.0.0",            // رقم إصدار مشروعك
+  "description": "A brief description of what my project does.", // وصف موجز لمشروعك
+  "main": "index.js",           // نقطة الدخول الرئيسية لتطبيقك (عادةً ملف JavaScript)
+  "scripts": {
+    "start": "node index.js",   // أمر لتشغيل تطبيقك (يمكنك استخدام `npm start`)
+    "test": "echo \"Error: no test specified\" && exit 1" // أمر لتشغيل الاختبارات (يمكنك تعديله)
+  },
+  "keywords": [                 // كلمات مفتاحية لمشروعك تساعد في البحث
+    "node",
+    "express",
+    "web"
+  ],
+  "author": "Your Name <your.email@example.com>", // اسمك وبريدك الإلكتروني كمطور
+  "license": "MIT",             // نوع الترخيص لمشروعك (MIT هو شائع ومرن)
+  "dependencies": {             // الاعتمادات (dependencies) التي يحتاجها مشروعك للتشغيل
+    "express": "^4.18.2",       // مثال: مكتبة Express
+    "mongoose": "^8.0.0"        // مثال: مكتبة Mongoose للتفاعل مع MongoDB
+  },
+  "devDependencies": {          // الاعتمادات التي تحتاجها للتطوير فقط (مثل أدوات الاختبار أو البناء)
+    "nodemon": "^3.0.1",        // مثال: nodemon لإعادة تشغيل الخادم تلقائياً أثناء التطوير
+    "jest": "^29.7.0"           // مثال: Jest لإجراء الاختبارات
+  }
+}
 
