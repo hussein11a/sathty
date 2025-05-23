@@ -1,1 +1,69 @@
+// هذا الملف يحتوي على SCSS Mixin لإنشاء أنماط خاصة بالوضع الداكن.
+// يسمح لك بتطبيق قواعد CSS محددة فقط عندما يكون الوضع الداكن نشطًا.
+// يتم تضمينه عادةً في ملف SCSS رئيسي، ثم يتم استخدامه في مكونات أخرى.
+
+@mixin dark-mode {
+  // هذا الـ Mixin يعتمد على وجود الفئة `.dark-theme` على وسم `<body>`
+  // أو على استخدام استعلام وسائط CSS `prefers-color-scheme: dark`.
+
+  // 1. الأسلوب المعتمد على JavaScript (إضافة فئة .dark-theme إلى body)
+  // هذا هو الأسلوب المستخدم مع مكون `theme-toggle.js`
+  body.dark-theme & {
+    @content; // يتم تطبيق المحتوى الذي يتم تمريره إلى الـ Mixin هنا
+  }
+
+  // 2. الأسلوب المعتمد على تفضيلات النظام (CSS media query)
+  // يمكنك استخدام هذا لتطبيق الوضع الداكن افتراضيًا بناءً على تفضيلات المستخدم
+  // ما لم يتم تجاوزها بواسطة JavaScript (الخيار أعلاه)
+  @media (prefers-color-scheme: dark) {
+    // تأكد من أن هذا لا يتعارض مع .dark-theme في JavaScript
+    // إذا كنت تستخدم طريقة التبديل بالـ JavaScript، فقد لا تحتاج إلى هذا الجزء
+    // إلا إذا كنت تريد أن يكون الوضع الداكن هو الافتراضي لتفضيلات المستخدم
+    // قبل أن يتمكنوا من التبديل يدوياً.
+    body:not(.light-theme) & { // يطبق إذا لم تكن هناك فئة light-theme
+      @content;
+    }
+  }
+}
+
+/*
+  كيفية استخدام هذا الـ Mixin في ملفات SCSS الأخرى:
+
+  .some-element {
+    background-color: var(--light-bg);
+    color: var(--light-text);
+
+    @include dark-mode {
+      // هذه الأنماط ستُطبق فقط عندما يكون الوضع الداكن نشطًا
+      background-color: var(--dark-bg);
+      color: var(--dark-text);
+    }
+  }
+
+  // المزيج يسمح لك بتغيير أي خاصية CSS.
+  // ومع ذلك، الطريقة الأفضل والأكثر حداثة للتعامل مع الوضع الداكن
+  // هي استخدام **متغيرات CSS (CSS Custom Properties)** على `:root` أو `body`.
+  // مثال:
+  // في _variables.scss:
+  // :root {
+  //   --primary-color: #007bff;
+  //   --background-color: #ffffff;
+  //   --text-color: #333333;
+  // }
+
+  // body.dark-theme {
+  //   --primary-color: #66b3ff;
+  //   --background-color: #1a1a1a;
+  //   --text-color: #eeeeee;
+  // }
+
+  // ثم في المكونات الأخرى، تستخدم فقط المتغيرات:
+  // .some-element {
+  //   background-color: var(--background-color);
+  //   color: var(--text-color);
+  // }
+
+  // إذا كنت تستخدم متغيرات CSS بشكل كامل، فقد لا تحتاج إلى هذا الـ Mixin
+  // إلا لتغيير سلوكيات معينة أو أنماط لا يمكن تغطيتها بالمتغيرات بسهيم.
+*/
 
