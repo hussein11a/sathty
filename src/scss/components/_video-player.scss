@@ -1,1 +1,30 @@
+// هذا الملف خاص بأنماط مشغل الفيديو (Video Player).
+// يُستخدم لضمان عرض الفيديوهات المضمنة (مثل YouTube أو Vimeo) بشكل متجاوب.
+// يتم تضمينه عادةً في ملف SCSS رئيسي.
+
+.video-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* نسبة العرض إلى الارتفاع (16:9) */
+  height: 0;
+  overflow: hidden;
+  margin: 30px auto; // توسيط وتوفير مسافة
+  background-color: var(--dark-gray, #222); // خلفية سوداء للمكان قبل التحميل
+  border-radius: 10px; // حواف مستديرة للمشغل
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+
+  iframe,
+  object,
+  embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0; // إزالة الحدود الافتراضية
+  }
+
+  // يمكن إضافة أنماط لزر التشغيل (play button) إذا كان مشغل فيديو مخصص
+  // أو لغطاء الفيديو (overlay) قبل التشغيل
+}
 
