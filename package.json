@@ -1,26 +1,25 @@
 {
-  "name": "my-awesome-project",  // اسم مشروعك (يجب أن يكون فريداً وعلى شكل slug)
-  "version": "1.0.0",            // رقم إصدار مشروعك
-  "description": "A brief description of what my project does.", // وصف موجز لمشروعك
-  "main": "index.js",           // نقطة الدخول الرئيسية لتطبيقك (عادةً ملف JavaScript)
-  "scripts": {
-    "start": "node index.js",   // أمر لتشغيل تطبيقك (يمكنك استخدام `npm start`)
-    "test": "echo \"Error: no test specified\" && exit 1" // أمر لتشغيل الاختبارات (يمكنك تعديله)
+  "name": "my-awesome-project",  // تم التأكد من "name" باقتباس مزدوج
+  "version": "1.0.0",            // تم التأكد من "version" باقتباس مزدوج
+  "description": "A brief description of what my project does.", // تم التأكد من "description" باقتباس مزدوج
+  "main": "index.js",           // تم التأكد من "main" باقتباس مزدوج
+  "scripts": {                  // تم التأكد من "scripts" باقتباس مزدوج
+    "start": "node index.js",   // تم التأكد من "start" باقتباس مزدوج
+    "test": "echo \"Error: no test specified\" && exit 1" // تم التأكد من "test" باقتباس مزدوج
   },
-  "keywords": [                 // كلمات مفتاحية لمشروعك تساعد في البحث
+  "keywords": [                 // تم التأكد من "keywords" باقتباس مزدوج
     "node",
     "express",
     "web"
   ],
-  "author": "Your Name <your.email@example.com>", // اسمك وبريدك الإلكتروني كمطور
-  "license": "MIT",             // نوع الترخيص لمشروعك (MIT هو شائع ومرن)
-  "dependencies": {             // الاعتمادات (dependencies) التي يحتاجها مشروعك للتشغيل
-    "express": "^4.18.2",       // مثال: مكتبة Express
-    "mongoose": "^8.0.0"        // مثال: مكتبة Mongoose للتفاعل مع MongoDB
+  "author": "Your Name <your.email@example.com>", // تم التأكد من "author" باقتباس مزدوج
+  "license": "MIT",             // تم التأكد من "license" باقتباس مزدوج
+  "dependencies": {             // تم التأكد من "dependencies" باقتباس مزدوج
+    "express": "^4.18.2",
+    "mongoose": "^8.0.0"
   },
-  "devDependencies": {          // الاعتمادات التي تحتاجها للتطوير فقط (مثل أدوات الاختبار أو البناء)
-    "nodemon": "^3.0.1",        // مثال: nodemon لإعادة تشغيل الخادم تلقائياً أثناء التطوير
-    "jest": "^29.7.0"           // مثال: Jest لإجراء الاختبارات
+  "devDependencies": {          // تم التأكد من "devDependencies" باقتباس مزدوج
+    "nodemon": "^3.0.1",
+    "jest": "^29.7.0"
   }
 }
-
