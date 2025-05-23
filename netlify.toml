@@ -1,1 +1,48 @@
+[build]
+  # أمر البناء الذي يستخدمه Netlify لبناء مشروعك.
+  # مثال: "npm run build" أو "yarn build" أو "hugo"
+  command = "الرجاء تحديد أمر البناء الخاص بمشروعك"
+
+  # المجلد الذي يحتوي على الملفات الجاهزة للنشر بعد عملية البناء.
+  # مثال: "build" أو "dist" أو "public"
+  publish = "الرجاء تحديد مجلد النشر الخاص بمشروعك"
+
+  # [اختياري] الفرع الذي تريد أن يقوم Netlify بنشره تلقائيًا.
+  # عادةً ما يكون "main" أو "master".
+  # branch = "main"
+
+[dev]
+  # [اختياري] أمر تشغيل خادم التطوير المحلي.
+  # مثال: "npm run dev" أو "npm start"
+  # command = "الرجاء تحديد أمر تشغيل التطوير الخاص بمشروعك"
+
+  # [اختياري] المجلد الذي يتم تحميله بواسطة خادم التطوير.
+  # publish = "الرجاء تحديد مجلد التطوير الخاص بمشروعك"
+
+  # [اختياري] المنفذ الذي يستمع عليه خادم التطوير.
+  # port = 8888
+
+# [اختياري] قسم خاص بإعادة التوجيه (Redirects)
+# [[redirects]]
+#   from = "/old-path"
+#   to = "/new-path"
+#   status = 301 # Permanent redirect
+
+# [[redirects]]
+#   from = "/blog/*"
+#   to = "/new-blog/:splat"
+#   status = 200 # Rewrite URL (internal)
+
+# [اختياري] قسم خاص برؤوس HTTP المخصصة (Headers)
+# [[headers]]
+#   for = "/*"
+#   [headers.values]
+#     X-Frame-Options = "DENY"
+#     X-XSS-Protection = "1; mode=block"
+
+# [اختياري] تحديد المتغيرات البيئية لعملية البناء
+# [build.environment]
+#   NODE_VERSION = "18"
+#   YARN_VERSION = "1.22.19"
+#   MY_CUSTOM_VAR = "some_value"
 
