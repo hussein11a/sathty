@@ -1,1 +1,53 @@
+// هذا الملف خاص بأنماط قسم المقدمة (Intro Section).
+// يستخدم لعرض معلومات افتتاحية جذابة في بداية الصفحة أو القسم.
+// يتم تضمينه عادةً في ملف SCSS رئيسي.
+
+.intro-section {
+  text-align: center;
+  padding: 60px 20px;
+  background-color: var(--background-color-light, #f8f9fa);
+  color: var(--text-color);
+
+  @media (max-width: 768px) {
+    padding: 40px 15px;
+  }
+
+  .intro-title {
+    font-size: 2.8em;
+    margin-bottom: 20px;
+    color: var(--heading-color, #333);
+    line-height: 1.2;
+
+    @media (max-width: 768px) {
+      font-size: 2em;
+    }
+  }
+
+  .intro-description {
+    font-size: 1.2em;
+    max-width: 800px;
+    margin: 0 auto 30px auto;
+    line-height: 1.6;
+    color: var(--secondary-text-color, #555);
+
+    @media (max-width: 768px) {
+      font-size: 1em;
+    }
+  }
+
+  .intro-actions {
+    display: flex;
+    justify-content: center;
+    gap: 20px; // مسافة بين الأزرار
+
+    @media (max-width: 576px) {
+      flex-direction: column;
+      gap: 15px;
+
+      .button {
+        width: 100%; // الأزرار تملأ العرض على الشاشات الصغيرة
+      }
+    }
+  }
+}
 
