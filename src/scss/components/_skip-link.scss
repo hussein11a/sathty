@@ -1,1 +1,25 @@
+// هذا الملف خاص بأنماط رابط "تجاوز المحتوى" (Skip Link).
+// هذا الرابط يسمح للمستخدمين الذين يستخدمون لوحة المفاتيح أو قارئات الشاشة
+// بتجاوز شريط التنقل والقفز مباشرة إلى المحتوى الرئيسي، مما يحسن إمكانية الوصول.
+
+.skip-link {
+  position: absolute;
+  top: -40px; // مخفي خارج الشاشة افتراضيًا
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--primary-color, #007bff);
+  color: #ffffff;
+  padding: 8px 15px;
+  border-radius: 0 0 8px 8px;
+  text-decoration: none;
+  font-weight: bold;
+  z-index: 9999; // لضمان ظهوره فوق كل شيء
+  transition: top 0.3s ease-in-out;
+
+  &:focus {
+    top: 0; // يظهر عندما يحصل على التركيز
+    outline: none; // إزالة الإطار الافتراضي للتركيز
+    box-shadow: 0 0 0 3px rgba(var(--primary-color-rgb, 0, 123, 255), 0.5);
+  }
+}
 
