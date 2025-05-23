@@ -1,1 +1,128 @@
+// هذا الملف خاص بأنماط التنقل (Navigation) الرئيسية للموقع.
+// يتم تضمينه عادةً في ملف SCSS رئيسي.
+
+.main-nav {
+  .nav-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex; // لجعل الروابط تظهر بجانب بعضها البعض
+
+    @media (max-width: 991px) {
+      // إخفاء قائمة التنقل على الشاشات الصغيرة افتراضيًا
+      display: none;
+      flex-direction: column; // لجعل الروابط تظهر فوق بعضها في قائمة الجوال
+      position: absolute;
+      top: 100%; // تظهر أسفل الهيدر
+      left: 0;
+      width: 100%;
+      background-color: var(--header-bg-color, #ffffff); // خلفية القائمة المفتوحة
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+      z-index: 1000; // لضمان ظهورها فوق المحتوى
+      padding: 15px 0;
+
+      &.is-open { // فئة لإظهار القائمة عند النقر على زر التبديل
+        display: flex;
+      }
+    }
+  }
+
+  .nav-item {
+    margin-right: 30px; // مسافة بين عناصر التنقل
+
+    @media (max-width: 991px) {
+      margin: 0; // إزالة الهامش الجانبي في قائمة الجوال
+      width: 100%;
+      text-align: center; // توسيط الروابط في قائمة الجوال
+      padding: 10px 0; // حشو لكل عنصر
+    }
+
+    &:last-child {
+      margin-right: 0; // إزالة الهامش من آخر عنصر
+    }
+  }
+
+  .nav-link {
+    display: block;
+    padding: 10px 0;
+    text-decoration: none;
+    color: var(--nav-link-color, #555);
+    font-weight: 600;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: var(--primary-color, #007bff);
+    }
+
+    // النمط للرابط النشط (الصفحة الحالية)
+    &.active {
+      color: var(--primary-color, #007bff);
+      border-bottom: 2px solid var(--primary-color, #007bff); // خط سفلي للصفحة النشطة
+
+      @media (max-width: 991px) {
+        border-bottom: none; // إزالة الخط السفلي في قائمة الجوال
+        background-color: var(--primary-color-light, #e9f5ff); // خلفية خفيفة للنشط في الجوال
+      }
+    }
+
+    @media (max-width: 991px) {
+      padding: 12px 20px; // حشو أكبر للروابط في قائمة الجوال
+      border-bottom: 1px solid var(--border-color-light, #eee); // فاصل بين الروابط
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+  }
+}
+
+// زر القائمة للجوال (Hamburger Icon)
+.menu-toggle {
+  display: none; // إخفاء افتراضيًا على الشاشات الكبيرة
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px; // لسهولة النقر
+  z-index: 1001; // ليكون فوق القائمة
+  
+  @media (max-width: 991px) {
+    display: block; // إظهار الزر على الشاشات الصغيرة
+  }
+
+  .hamburger {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: var(--text-color, #333);
+    position: relative;
+    transition: background-color 0.3s ease;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 3px;
+      background-color: var(--text-color, #333);
+      transition: transform 0.3s ease, top 0.3s ease, opacity 0.3s ease;
+    }
+
+    &::before {
+      top: -8px;
+    }
+
+    &::after {
+      top: 8px;
+    }
+  }
+
+  &.is-active .hamburger {
+    background-color: transparent; // إخفاء الخط الأوسط
+    &::before {
+      transform: translateY(8px) rotate(45deg);
+    }
+    &::after {
+      transform: translateY(-8px) rotate(-45deg);
+    }
+  }
+}
 
