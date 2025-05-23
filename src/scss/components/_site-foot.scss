@@ -1,1 +1,102 @@
+// هذا الملف خاص بأنماط الجزء السفلي من الصفحة (Site Foot).
+// يتضمن أنماط الأزرار العائمة وزر "الرجوع للأعلى".
+// يتم تضمينه عادةً في ملف SCSS رئيسي.
+
+.floating-buttons {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  z-index: 999; // للتأكد من ظهورها فوق المحتوى
+
+  @media (max-width: 768px) {
+    bottom: 15px;
+    right: 15px;
+    gap: 12px;
+  }
+
+  .floating-button {
+    background-color: var(--primary-color, #007bff);
+    color: #ffffff;
+    width: 55px; // حجم ثابت للأزرار الدائرية
+    height: 55px;
+    border-radius: 50%; // لجعلها دائرية
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-decoration: none; // إزالة خط التسطير
+
+    &:hover {
+      background-color: var(--primary-color-dark, #0056b3);
+      transform: translateY(-3px);
+    }
+
+    svg {
+      width: 28px; // حجم الأيقونة
+      height: 28px;
+      fill: #ffffff; // لون الأيقونة
+    }
+
+    @media (max-width: 768px) {
+      width: 48px;
+      height: 48px;
+      svg {
+        width: 24px;
+        height: 24px;
+      }
+    }
+  }
+}
+
+.back-to-top {
+  position: fixed;
+  bottom: 90px; // أعلى من الأزرار العائمة بقليل
+  right: 20px;
+  background-color: var(--primary-color, #007bff);
+  color: #ffffff;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, transform 0.2s ease, opacity 0.3s ease;
+  z-index: 998; // أقل من الأزرار العائمة
+  opacity: 0; // مخفي افتراضيًا
+  visibility: hidden; // مخفي تمامًا حتى لا يتفاعل مع الماوس
+
+  &.show { // يتم إضافة هذا الكلاس بواسطة JavaScript
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &:hover {
+    background-color: var(--primary-color-dark, #0056b3);
+    transform: translateY(-3px);
+  }
+
+  svg {
+    width: 24px;
+    height: 24px;
+    fill: #ffffff;
+    transform: rotate(-90deg); // تدوير السهم ليصبح متجهًا للأعلى
+  }
+
+  @media (max-width: 768px) {
+    bottom: 80px;
+    right: 15px;
+    width: 45px;
+    height: 45px;
+    svg {
+      width: 22px;
+      height: 22px;
+    }
+  }
+}
 
