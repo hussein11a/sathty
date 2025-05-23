@@ -1,1 +1,95 @@
+// هذا الملف خاص بأنماط عناصر النماذج (Forms) في المشروع.
+// يتم تضمينه عادةً في ملف SCSS رئيسي.
+
+.form-group {
+  margin-bottom: 20px;
+
+  label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: var(--text-color);
+  }
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="password"],
+textarea,
+select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--border-color, #ddd);
+  border-radius: 6px;
+  font-size: 1em;
+  color: var(--text-color);
+  background-color: var(--background-color-light, #ffffff);
+  box-sizing: border-box; // لضمان أن العرض يشمل الحشو والحدود
+
+  &:focus {
+    border-color: var(--primary-color, #007bff);
+    outline: none; // إزالة الإطار الافتراضي
+    box-shadow: 0 0 0 3px rgba(var(--primary-color-rgb, 0, 123, 255), 0.25);
+  }
+
+  &::placeholder {
+    color: var(--placeholder-color, #999);
+  }
+}
+
+textarea {
+  min-height: 120px;
+  resize: vertical; // السماح للمستخدم بتغيير حجم مربع النص عموديًا
+}
+
+.form-actions {
+  margin-top: 30px;
+  text-align: center;
+
+  .button {
+    min-width: 150px;
+  }
+}
+
+.form-message {
+  margin-top: 15px;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-size: 0.95em;
+  text-align: center;
+
+  &.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+  }
+
+  &.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+  }
+}
+
+/* أنماط خاصة بمربعات الاختيار (checkbox) والأزرار الإذاعية (radio) */
+.checkbox-group,
+.radio-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+
+  input[type="checkbox"],
+  input[type="radio"] {
+    width: auto; // السماح للمتصفح بتحديد العرض الافتراضي
+    margin-left: 0; // إزالة الهامش الافتراضي إذا كان موجودًا
+    margin-right: 10px; // مسافة بين المربع والنص
+  }
+
+  label {
+    display: inline-block;
+    margin-bottom: 0; // إزالة الهامش السفلي من label
+    font-weight: normal;
+  }
+}
 
