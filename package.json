@@ -1,25 +1,33 @@
 {
-  "name": "my-awesome-project",  // تم التأكد من "name" باقتباس مزدوج
-  "version": "1.0.0",            // تم التأكد من "version" باقتباس مزدوج
-  "description": "A brief description of what my project does.", // تم التأكد من "description" باقتباس مزدوج
-  "main": "index.js",           // تم التأكد من "main" باقتباس مزدوج
-  "scripts": {                  // تم التأكد من "scripts" باقتباس مزدوج
-    "start": "node index.js",   // تم التأكد من "start" باقتباس مزدوج
-    "test": "echo \"Error: no test specified\" && exit 1" // تم التأكد من "test" باقتباس مزدوج
+  "name": "my-awesome-project",
+  "version": "1.0.0",
+  "description": "A brief description of what my project does.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "build": "npx @11ty/eleventy", // **هذا هو السطر الجديد والمهم لعملية البناء**
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [                 // تم التأكد من "keywords" باقتباس مزدوج
+  "keywords": [
     "node",
     "express",
     "web"
   ],
-  "author": "Your Name <your.email@example.com>", // تم التأكد من "author" باقتباس مزدوج
-  "license": "MIT",             // تم التأكد من "license" باقتباس مزدوج
-  "dependencies": {             // تم التأكد من "dependencies" باقتباس مزدوج
+  "author": "Your Name <your.email@example.com>",
+  "license": "MIT",
+  "dependencies": {
     "express": "^4.18.2",
     "mongoose": "^8.0.0"
   },
-  "devDependencies": {          // تم التأكد من "devDependencies" باقتباس مزدوج
+  "devDependencies": {
     "nodemon": "^3.0.1",
-    "jest": "^29.7.0"
+    "jest": "^29.7.0",
+    "@11ty/eleventy": "^2.0.1" // **تأكد أن هذا موجود، أو قم بتثبيته**
+    // أضف أي DevDependencies أخرى تحتاجها هنا، مثل Rollup إذا كنت تستخدمه فعليًا:
+    // "@rollup/plugin-node-resolve": "^15.0.0",
+    // "@rollup/plugin-commonjs": "^25.0.0",
+    // "@rollup/plugin-typescript": "^11.0.0",
+    // "rollup-plugin-terser": "^7.0.2",
+    // "@rollup/plugin-babel": "^6.0.0"
   }
 }
