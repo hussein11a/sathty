@@ -1,1 +1,85 @@
+// هذا الملف خاص بأنماط الأزرار (Buttons) في المشروع.
+// يتم تضمينه عادةً في ملف SCSS رئيسي.
+
+.button {
+  display: inline-block;
+  padding: 12px 25px;
+  font-size: 1.1em;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+  white-space: nowrap; // منع الكلمات من التكسر داخل الزر
+
+  // الألوان الافتراضية
+  background-color: var(--primary-color, #007bff); // استخدام متغير CSS
+  color: var(--button-text-color, #ffffff);
+  border: 1px solid var(--primary-color, #007bff);
+
+  &:hover {
+    background-color: var(--primary-color-dark, #0056b3);
+    transform: translateY(-2px); // تأثير بسيط عند التحويم
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+
+  // أزرار أساسية (Primary Button)
+  &.primary-button {
+    background-color: var(--primary-color, #007bff);
+    color: var(--button-text-color, #ffffff);
+    border-color: var(--primary-color, #007bff);
+
+    &:hover {
+      background-color: var(--primary-color-dark, #0056b3);
+    }
+  }
+
+  // أزرار ثانوية (Secondary Button)
+  &.secondary-button {
+    background-color: var(--secondary-color, #6c757d);
+    color: var(--button-text-color, #ffffff);
+    border-color: var(--secondary-color, #6c757d);
+
+    &:hover {
+      background-color: var(--secondary-color-dark, #545b62);
+    }
+  }
+
+  // أزرار الخطوط العريضة (Outline Buttons)
+  &.outline-button {
+    background-color: transparent;
+    color: var(--primary-color, #007bff);
+    border-color: var(--primary-color, #007bff);
+
+    &:hover {
+      background-color: var(--primary-color, #007bff);
+      color: var(--button-text-color, #ffffff);
+    }
+  }
+
+  // أزرار صغيرة
+  &.small {
+    padding: 8px 15px;
+    font-size: 0.9em;
+  }
+
+  // أزرار كبيرة
+  &.large {
+    padding: 15px 30px;
+    font-size: 1.2em;
+  }
+
+  // أزرار معطلة
+  &[disabled] {
+    opacity: 0.6;
+    cursor: not-allowed;
+    background-color: var(--light-gray, #cccccc);
+    border-color: var(--light-gray, #cccccc);
+    color: var(--dark-gray, #888888);
+  }
+}
 
