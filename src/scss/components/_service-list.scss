@@ -1,0 +1,114 @@
+// هذا الملف كان خاصًا بأنماط قوائم المقالات (Post Lists).
+// تم إعادة تسميته ليصبح `_service-list.scss` ليتناسب مع هيكل مشروع "سطحة هيدروليك".
+// يستخدم لعرض قائمة ببطاقات الخدمات.
+
+.services-list-component {
+  padding: 40px 0;
+  text-align: center; // توسيط العنوان الرئيسي إذا كان موجودًا
+
+  .section-title {
+    font-size: 2.5em;
+    margin-bottom: 40px;
+    color: var(--heading-color);
+
+    @media (max-width: 768px) {
+      font-size: 2em;
+      margin-bottom: 30px;
+    }
+  }
+}
+
+.services-grid {
+  display: grid;
+  // تخطيط شبكي مرن يتكيف مع عرض الشاشة
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px; // المسافة بين بطاقات الخدمات
+  justify-content: center; // توسيط الشبكة إذا لم تملأ العرض بالكامل
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+  }
+
+  @media (max-width: 576px) {
+    grid-template-columns: 1fr; // عمود واحد على الشاشات الصغيرة جدًا
+  }
+}
+
+.service-card {
+  background-color: var(--card-bg-color, #ffffff);
+  border: 1px solid var(--border-color-light, #eee);
+  border-radius: 10px;
+  overflow: hidden; // لضمان عدم خروج الصورة من الحدود
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none; // إزالة خط التسطير من الرابط
+  color: inherit; // وراثة لون النص
+
+  &:hover {
+    transform: translateY(-5px); // تأثير رفع عند التحويم
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  }
+
+  .service-image-wrapper {
+    width: 100%;
+    height: 200px; // ارتفاع ثابت للصور
+    overflow: hidden; // لضمان قص الصورة إذا كانت أكبر
+    background-color: var(--light-gray, #f0f0f0); // خلفية للمكان الفارغ قبل التحميل
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .service-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; // لملء المساحة مع الحفاظ على نسبة العرض إلى الارتفاع
+    display: block;
+  }
+
+  .service-content {
+    padding: 20px;
+    flex-grow: 1; // لجعل المحتوى يمتد ويملأ المساحة المتاحة
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; // لربط الزر بالأسفل
+    text-align: right; // محاذاة النص لليمين
+  }
+
+  .service-title {
+    font-size: 1.5em;
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: var(--heading-color, #333);
+  }
+
+  .service-description {
+    font-size: 0.95em;
+    line-height: 1.6;
+    color: var(--secondary-text-color, #555);
+    margin-bottom: 20px;
+    flex-grow: 1; // ليدفع الزر للأسفل
+  }
+
+  .service-link {
+    display: inline-block; // لجعل الزر يتبع عرض المحتوى
+    margin-top: auto; // لدفع الزر للأسفل
+    // استخدم هنا أنماط الزر الأساسية أو نمط زر مخصص للبطاقات
+    // مثل: `extend .button;` أو نسخ الأنماط مباشرة
+    background-color: var(--primary-color, #007bff);
+    color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: var(--primary-color-dark, #0056b3);
+    }
+  }
+}
+
