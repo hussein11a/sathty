@@ -1,8 +1,7 @@
 {#
   هذا الملف هو قالب تخطيط (Layout) مصمم لعرض "أرشيف" أو قائمة من المحتوى.
-  في سياق موقع "سطحة هيدروليك" الذي لا يحتوي على مدونة،
-  يمكن استخدام هذا التخطيط لإنشاء صفحة تعرض جميع الخدمات المتاحة،
-  أو قائمة بأي نوع آخر من العناصر المتكررة.
+  يمكن استخدامه لإنشاء صفحة تعرض جميع الخدمات المتاحة.
+  تم تحديثه لاستخدام المكون `partials/components/service-list.njk`.
   يستخدم الـ `base.njk` كتخطيط أساسي له.
 #}
 {% extends "base.njk" %}
@@ -12,30 +11,8 @@
     <h1 class="page-title">{{ title }}</h1>
 
     <section class="archive-list">
-        {% if collections.services %} {# افتراض أن Eleventy ينشئ مجموعة للخدمات من posts.json #}
-            {% for service in collections.services %}
-                <article class="archive-item">
-                    <h2><a href="{{ service.url }}">{{ service.data.title }}</a></h2>
-                    <p>{{ service.data.description }}</p>
-                    {# إذا كانت لديك صفحات منفصلة للخدمات، يمكنك إضافة زر "قراءة المزيد" #}
-                    {# <a href="{{ service.url }}" class="button">تفاصيل الخدمة</a> #}
-                </article>
-            {% endfor %}
-        {% else %}
-            <p>لا توجد خدمات متاحة حالياً.</p>
-        {% endif %}
-
-        {# مثال لتكرار الـ `posts.json` إذا لم تكن كـ Eleventy Collection #}
-        <h3>جميع خدماتنا:</h3>
-        <div class="services-grid">
-            {% for service in posts %}
-            <div class="service-item">
-                <h3>{{ service.title }}</h3>
-                <p>{{ service.description }}</p>
-            </div>
-            {% endfor %}
-        </div>
+        {# استدعاء المكون الجزئي service-list.njk هنا لعرض الخدمات #}
+        {% include 'partials/components/service-list.njk' %}
     </section>
 </main>
 {% endblock %}
-
