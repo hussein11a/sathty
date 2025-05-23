@@ -1,1 +1,76 @@
+{#
+  هذا الملف يحتوي على ماكروز (Macros) Nunjucks عامة وشاملة للموقع.
+  تستخدم هذه الماكروز لإنشاء عناصر HTML متكررة وديناميكية عبر الموقع،
+  مما يساعد على تقليل تكرار الكود وزيادة قابلية الصيانة.
+
+  على سبيل المثال، يمكن أن تحتوي على ماكرو لإنشاء عنصر في قائمة التنقل،
+  أو لإنشاء بطاقة خدمة، أو أي جزء آخر من واجهة المستخدم المتكررة.
+#}
+
+{# ماكرو لإنشاء عنصر في قائمة التنقل (Navigation Link Item) #}
+{% macro navLink(item, currentPath) %}
+  <li class="nav-item">
+    <a href="{{ item.url }}" class="nav-link {% if item.url == currentPath %}active{% endif %}">
+      {{ item.text }}
+    </a>
+  </li>
+{% endmacro %}
+
+{# ماكرو لإنشاء بطاقة خدمة (Service Card) #}
+{# يتم استخدامها لتكرار عرض الخدمات من بيانات `posts.json` #}
+{% macro serviceCard(service) %}
+  <div class="service-item">
+    <h3 class="service-title">{{ service.title }}</h3>
+    <p class="service-description">{{ service.description }}</p>
+    {# يمكنك إضافة أيقونات أو صور للخدمة هنا إذا كانت متوفرة #}
+    {# <img src="/assets/images/services/{{ service.id }}.png" alt="{{ service.title }}"> #}
+  </div>
+{% endmacro %}
+
+{# ماكرو لإنشاء زر اتصال عائم (Floating Call Button) #}
+{% macro floatingCallButton(phoneNumber) %}
+  <a href="tel:{{ phoneNumber }}" class="floating-button call-button" title="اتصل بنا">
+    {# تضمين أيقونة الهاتف (من src/_includes/icons/phone.svg مثلاً) #}
+    <img src="/assets/images/phone-icon.png" alt="اتصال">
+  </a>
+{% endmacro %}
+
+{# ماكرو لإنشاء زر واتساب عائم (Floating WhatsApp Button) #}
+{% macro floatingWhatsappButton(whatsappNumber) %}
+  <a href="https://wa.me/{{ whatsappNumber }}" target="_blank" class="floating-button whatsapp-button" title="راسلنا واتساب">
+    {# تضمين أيقونة الواتساب (من src/_includes/icons/whatsapp.svg مثلاً) #}
+    <img src="/assets/images/whatsapp-icon.png" alt="واتساب">
+  </a>
+{% endmacro %}
+
+{#
+  كيفية استخدام هذه الماكروز في قالب آخر (مثلاً في `partials/header.njk` أو `index.njk`):
+
+  أولاً، يجب استيراد الماكروز:
+  `{% import '_includes/macros/site.njk' as siteMacros %}`
+
+  ثم استخدامها:
+
+  لتوليد قائمة التنقل في الـ Header:
+  `<nav class="main-nav">`
+    `<ul>`
+      `{% for item in navigation %}`
+        `{{ siteMacros.navLink(item, page.url) }}` {# تمرير مسار الصفحة الحالي لتفعيل فئة "active" #}
+      `{% endfor %}`
+    `</ul>`
+  `</nav>`
+
+  لعرض بطاقات الخدمات في الصفحة الرئيسية:
+  `<div class="services-grid">`
+    `{% for service in posts %}`
+      `{{ siteMacros.serviceCard(service) }}`
+    `{% endfor %}`
+  `</div>`
+
+  لعرض الأزرار العائمة (يمكن وضعها في `partials/floating-buttons.njk`):
+  `<div class="floating-buttons">`
+    `{{ siteMacros.floatingCallButton(tokens.phone_number) }}`
+    `{{ siteMacros.floatingWhatsappButton(tokens.whatsapp_number) }}`
+  `</div>`
+#}
 
