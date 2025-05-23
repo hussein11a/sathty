@@ -1,1 +1,192 @@
 
+{% extends "base.njk" %}
+
+{% block head %}
+    {{ super() }}
+    <title>لوحة تحكم الإدارة - سطحة هيدروليك</title>
+    <style>
+        .sidebar {
+            height: 100vh;
+            background-color: #343a40; /* Dark background for sidebar */
+            color: white;
+            padding-top: 20px;
+        }
+        .sidebar .nav-link {
+            color: #adb5bd; /* Lighter text for links */
+            padding: 10px 15px;
+            transition: background-color 0.3s;
+        }
+        .sidebar .nav-link:hover {
+            background-color: #495057;
+            color: white;
+        }
+        .sidebar .nav-link.active {
+            background-color: #007bff; /* Primary color for active link */
+            color: white;
+        }
+        .content-area {
+            padding: 20px;
+        }
+        .card-stats {
+            text-align: center;
+        }
+        .card-stats h3 {
+            font-size: 2.5em;
+            margin-bottom: 5px;
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+    <div class="d-flex">
+        <div class="sidebar col-md-2">
+            <h4 class="text-center mb-4">لوحة الإدارة</h4>
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a class="nav-link active" href="/admin">
+                        <i class="fas fa-tachometer-alt"></i> لوحة القيادة
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/admin/requests">
+                        <i class="fas fa-clipboard-list"></i> طلبات السطحات
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/admin/drivers">
+                        <i class="fas fa-truck-moving"></i> إدارة السائقين
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/admin/users">
+                        <i class="fas fa-users"></i> إدارة المستخدمين
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/admin/settings">
+                        <i class="fas fa-cogs"></i> الإعدادات
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/logout">
+                        <i class="fas fa-sign-out-alt"></i> تسجيل الخروج
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="content-area col-md-10">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light mb-4 rounded">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">مرحباً بك في لوحة الإدارة!</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">المشرف: [اسم المشرف]</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            <h1 class="mb-4">لوحة القيادة</h1>
+
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card bg-primary text-white card-stats">
+                        <div class="card-body">
+                            <h3>50</h3>
+                            <p>طلبات جديدة</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card bg-success text-white card-stats">
+                        <div class="card-body">
+                            <h3>120</h3>
+                            <p>طلبات مكتملة اليوم</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card bg-warning text-dark card-stats">
+                        <div class="card-body">
+                            <h3>15</h3>
+                            <p>سائقين متاحين</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card mb-4">
+                <div class="card-header">
+                    آخر 5 طلبات
+                </div>
+                <div class="card-body">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">العميل</th>
+                                <th scope="col">من</th>
+                                <th scope="col">إلى</th>
+                                <th scope="col">الحالة</th>
+                                <th scope="col">تاريخ الطلب</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>أحمد سعيد</td>
+                                <td>الرياض</td>
+                                <td>جدة</td>
+                                <td><span class="badge bg-warning text-dark">قيد الانتظار</span></td>
+                                <td>2025-05-22</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>فاطمة خالد</td>
+                                <td>الدمام</td>
+                                <td>الخبر</td>
+                                <td><span class="badge bg-success">مكتمل</span></td>
+                                <td>2025-05-21</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">3</th>
+                                <td>محمد علي</td>
+                                <td>مكة</td>
+                                <td>المدينة</td>
+                                <td><span class="badge bg-info text-dark">معلق</span></td>
+                                <td>2025-05-21</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">4</th>
+                                <td>ليلى ناصر</td>
+                                <td>الرياض</td>
+                                <td>القصيم</td>
+                                <td><span class="badge bg-primary">قيد التنفيذ</span></td>
+                                <td>2025-05-20</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">5</th>
+                                <td>خالد فهد</td>
+                                <td>تبوك</td>
+                                <td>حائل</td>
+                                <td><span class="badge bg-danger">ملغى</span></td>
+                                <td>2025-05-20</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            </div>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    {{ super() }}
+    {% endblock %}
