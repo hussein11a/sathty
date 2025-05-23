@@ -1,1 +1,30 @@
+{#
+  هذا الملف هو مكون جزئي (Partial Component) مصمم لعرض قسم تمهيدي أو مقدمة للصفحة (Hero Section).
+  يُستخدم عادةً في أعلى الصفحة الرئيسية أو صفحات الأرشيف لتقديم ملخص أو رسالة ترحيب.
+  يمكن أن يحتوي على عنوان كبير، وصف موجز، وأزرار دعوة لاتخاذ إجراء.
+#}
+<section class="intro-section">
+    <div class="container">
+        {% if title %}
+            <h1>{{ title }}</h1>
+        {% else %}
+            <h1>مرحباً بك في {{ tokens.site_name }}</h1>
+        {% endif %}
+
+        {% if description %}
+            <p>{{ description }}</p>
+        {% else %}
+            <p>{{ tokens.site_description }}</p>
+        {% endif %}
+
+        <div class="intro-buttons">
+            <a href="tel:{{ tokens.phone_number }}" class="button primary-button">
+                <img src="/assets/images/phone-icon.png" alt="اتصال" class="button-icon"> اتصل الآن
+            </a>
+            <a href="https://wa.me/{{ tokens.whatsapp_number }}" target="_blank" class="button secondary-button">
+                <img src="/assets/images/whatsapp-icon.png" alt="واتساب" class="button-icon"> واتساب
+            </a>
+        </div>
+    </div>
+</section>
 
