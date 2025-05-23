@@ -1,1 +1,101 @@
+// هذا الملف يحدد المتغيرات الأساسية للثيمات (الألوان، الخطوط، الظلال)
+// ويدعم الوضع الفاتح والداكن باستخدام CSS Custom Properties.
+// يتم تضمينه في ملف SCSS الرئيسي أو مباشرة في <head> (كـ CSS).
+
+// تعريف المتغيرات في الوضع الفاتح (افتراضي)
+:root {
+  // الألوان الأساسية
+  --primary-color: #007bff;        // اللون الرئيسي (أزرق)
+  --primary-color-dark: #0056b3;   // درجة أغمق من اللون الرئيسي
+  --primary-color-light: #e9f5ff;  // درجة أفتح من اللون الرئيسي (مثال: للخلفيات الخفيفة)
+  --primary-color-rgb: 0, 123, 255; // قيمة RGB للون الرئيسي (لـ box-shadow, rgba)
+
+  --secondary-color: #6c757d;      // اللون الثانوي (رمادي)
+  --secondary-color-dark: #545b62; // درجة أغمق
+  --secondary-color-light: #f0f0f0; // درجة أفتح
+
+  // ألوان النص
+  --text-color: #333333;           // لون النص الأساسي (أسود)
+  --secondary-text-color: #555555; // لون النص الثانوي (رمادي أغمق)
+  --heading-color: #212529;        // لون العناوين (أسود داكن)
+  --link-color: var(--primary-color); // لون الروابط
+  --link-hover-color: var(--primary-color-dark); // لون الروابط عند التحويم
+
+  // ألوان الخلفيات
+  --background-color: #ffffff;     // خلفية الصفحة الرئيسية (أبيض)
+  --background-color-light: #f8f9fa; // خلفية فاتحة للأقسام
+
+  // ألوان الحدود
+  --border-color: #dddddd;         // لون الحدود العام
+  --border-color-light: #eeeeee;   // لون حدود أفتح
+
+  // ألوان البطاقات والعناصر
+  --card-bg-color: #ffffff;        // خلفية البطاقات
+  --button-text-color: #ffffff;    // لون نص الأزرار
+  --placeholder-color: #999999;    // لون نص الحقول الفارغة
+
+  // ألوان الكود (إذا كان موجودًا)
+  --code-bg-color: #f5f5f5;        // خلفية كتل الكود
+  --code-text-color: #333333;      // لون نص الكود
+  --inline-code-bg-color: #e0e0e0; // خلفية الكود المضمن
+  --inline-code-text-color: #c7254e; // لون الكود المضمن
+
+  // ألوان عامة إضافية
+  --light-gray: #f0f0f0;
+  --dark-gray: #343a40;
+
+  // الظلال
+  --box-shadow-sm: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  --box-shadow-md: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+// أنماط الوضع الداكن (Dark Mode)
+// يتم تفعيلها عن طريق إضافة فئة `dark-theme` إلى وسم `<body>` باستخدام JavaScript
+body.dark-theme {
+  // الألوان الأساسية
+  --primary-color: #66b3ff;        // أزرق أفتح للوضع الداكن
+  --primary-color-dark: #3385ff;   // أغمق قليلاً
+  --primary-color-light: #1c477a;  // أفتح قليلاً للخلفيات
+  --primary-color-rgb: 102, 179, 255;
+
+  --secondary-color: #999999;
+  --secondary-color-dark: #777777;
+  --secondary-color-light: #333333;
+
+  // ألوان النص
+  --text-color: #e0e0e0;           // نص فاتح
+  --secondary-text-color: #b0b0b0; // نص رمادي فاتح
+  --heading-color: #f8f8f8;        // عناوين بيضاء تقريباً
+  --link-color: var(--primary-color);
+  --link-hover-color: var(--primary-color-dark);
+
+  // ألوان الخلفيات
+  --background-color: #1a1a1a;     // خلفية داكنة جداً
+  --background-color-light: #2c2c2c; // خلفية أفتح قليلاً للأقسام
+
+  // ألوان الحدود
+  --border-color: #444444;
+  --border-color-light: #3a3a3a;
+
+  // ألوان البطاقات والعناصر
+  --card-bg-color: #2a2a2a;
+  --button-text-color: #ffffff;
+  --placeholder-color: #777777;
+
+  // ألوان الكود (إذا كان موجودًا)
+  --code-bg-color: #1e1e1e;
+  --code-text-color: #d4d4d4;
+  --inline-code-bg-color: #3a3a3a;
+  --inline-code-text-color: #f92672;
+
+  // ألوان عامة إضافية
+  --light-gray: #333333;
+  --dark-gray: #121212;
+}
+
+// يمكن إضافة أنماط عامة للوضع الداكن هنا إذا كانت لا تعتمد على متغيرات:
+// مثال: تغيير لون شريط التمرير
+// body.dark-theme::-webkit-scrollbar-thumb {
+//   background-color: #555;
+// }
 
