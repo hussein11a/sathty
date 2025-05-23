@@ -1,1 +1,65 @@
+{#
+  هذا الملف هو قالب تخطيط (Layout) مصمم خصيصاً لصفحة "اتصل بنا".
+  بما أنك لا ترغب في استخدام نموذج اتصال مباشر، يمكن أن تعرض هذه الصفحة
+  معلومات الاتصال الأساسية مثل أرقام الهاتف، الواتساب، والبريد الإلكتروني،
+  بالاعتماد على البيانات المخزنة في `tokens.json`.
+  يستخدم الـ `base.njk` كتخطيط أساسي له.
+#}
+{% extends "base.njk" %}
+
+{% block content %}
+<main class="container page-content">
+    <h1 class="page-title">{{ title }}</h1>
+
+    <section class="contact-info">
+        <p>نحن متواجدون على مدار الساعة لخدمتكم والإجابة على جميع استفساراتكم.</p>
+        <p>لا تترددوا في الاتصال بنا عبر القنوات التالية:</p>
+
+        <div class="contact-details">
+            {% if tokens.phone_number %}
+            <div class="contact-item">
+                <h3>رقم الهاتف</h3>
+                <p>
+                    <a href="tel:{{ tokens.phone_number }}">{{ tokens.phone_number }}</a>
+                </p>
+            </div>
+            {% endif %}
+
+            {% if tokens.whatsapp_number %}
+            <div class="contact-item">
+                <h3>واتساب</h3>
+                <p>
+                    <a href="https://wa.me/{{ tokens.whatsapp_number }}" target="_blank">
+                        {{ tokens.whatsapp_number }} (اضغط للدردشة)
+                    </a>
+                </p>
+            </div>
+            {% endif %}
+
+            {% if tokens.email_address %}
+            <div class="contact-item">
+                <h3>البريد الإلكتروني</h3>
+                <p>
+                    <a href="mailto:{{ tokens.email_address }}">{{ tokens.email_address }}</a>
+                </p>
+            </div>
+            {% endif %}
+
+            <div class="contact-item">
+                <h3>ساعات العمل</h3>
+                <p>{{ site.contact_hours.notes }}</p> {# استخدام البيانات من site.json #}
+            </div>
+        </div>
+
+        {# يمكنك إضافة خريطة جوجل هنا إذا كان لديك موقع فعلي #}
+        {#
+        <div class="map-container">
+            <h3>موقعنا</h3>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1dSOME_LAT_LNG!2dSOME_LONG!3dSOME_LAT!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zSOME_NAME!5e0!3m2!1sen!2s!4vSOME_CODE" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+        #}
+
+    </section>
+</main>
+{% endblock %}
 
