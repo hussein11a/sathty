@@ -1,1 +1,46 @@
+{#
+  هذا الملف يحتوي على ماكروز (Macros) Nunjucks لإنشاء عناصر النماذج (Forms).
+  الماكروز تجعل من السهل إعادة استخدام كود HTML لعناصر النماذج المختلفة،
+  مثل حقول الإدخال، مناطق النص، وأزرار الإرسال، مع الحفاظ على الاتساق.
+
+  بما أنك لا ترغب في استخدام نموذج اتصال مباشر، فقد لا تحتاج لهذا الملف.
+  ولكن إذا كنت تخطط لأي نوع من النماذج في المستقبل (مثل نموذج طلب خدمة)،
+  فهذه الماكروز ستكون مفيدة.
+#}
+
+{# ماكرو لإنشاء حقل إدخال نصي (Text Input Field) #}
+{% macro textInput(name, label, type='text', value='', placeholder='', required=false) %}
+  <div class="form-group">
+    <label for="{{ name }}">{{ label }}</label>
+    <input type="{{ type }}" id="{{ name }}" name="{{ name }}" value="{{ value }}" placeholder="{{ placeholder }}" {% if required %}required{% endif %}>
+  </div>
+{% endmacro %}
+
+{# ماكرو لإنشاء منطقة نص (Textarea) #}
+{% macro textarea(name, label, value='', placeholder='', rows=5, required=false) %}
+  <div class="form-group">
+    <label for="{{ name }}">{{ label }}</label>
+    <textarea id="{{ name }}" name="{{ name }}" rows="{{ rows }}" placeholder="{{ placeholder }}" {% if required %}required{% endif %}>{{ value }}</textarea>
+  </div>
+{% endmacro %}
+
+{# ماكرو لإنشاء زر إرسال (Submit Button) #}
+{% macro submitButton(text, className='') %}
+  <button type="submit" class="button {{ className }}">{{ text }}</button>
+{% endmacro %}
+
+{#
+  كيفية استخدام هذه الماكروز في قالب آخر (مثلاً في صفحة `contact.njk` إذا كان بها نموذج):
+
+  أولاً، يجب استيراد الماكروز:
+  `{% import '_includes/macros/form.njk' as formMacros %}`
+
+  ثم استخدامها:
+  `<form action="/submit-form" method="POST">`
+    `{{ formMacros.textInput('userName', 'اسمك الكامل', required=true) }}`
+    `{{ formMacros.textInput('userEmail', 'بريدك الإلكتروني', type='email', placeholder='example@example.com', required=true) }}`
+    `{{ formMacros.textarea('userMessage', 'رسالتك', placeholder='اكتب رسالتك هنا...', required=true) }}`
+    `{{ formMacros.submitButton('إرسال الرسالة', 'primary-button') }}`
+  `</form>`
+#}
 
