@@ -1,8 +1,7 @@
 {#
   هذا الملف هو قالب تخطيط (Layout) مخصص للصفحة الرئيسية للموقع.
   يرث من التخطيط الأساسي (`base.njk`) ويقوم بتضمين المحتوى الخاص بالصفحة الرئيسية.
-  يمكن أن يحتوي على أقسام مميزة مثل "القسم التعريفي (Hero)", "الخدمات", "لماذا نحن",
-  "شهادات العملاء" وغيرها.
+  تم تحديثه لاستخدام المكون `partials/components/service-list.njk`.
 #}
 {% extends "base.njk" %}
 
@@ -27,40 +26,9 @@
 
     <section class="services-section container">
         <h2 class="section-title">خدماتنا</h2>
-        <div class="services-grid">
-            {# تكرار الخدمات من ملف posts.json (الذي سميناه في _data بـ `posts.json` و Netlify CMS يتعامل معه كـ `services` collection) #}
-            {% for service in posts %}
-            <div class="service-item">
-                <h3>{{ service.title }}</h3>
-                <p>{{ service.description }}</p>
-            </div>
-            {% endfor %}
-        </div>
+        {# استدعاء المكون الجزئي service-list.njk هنا #}
+        {% include 'partials/components/service-list.njk' %}
     </section>
 
-    {# يمكن إضافة أقسام أخرى هنا مثل: #}
-    {#
-    <section class="why-choose-us container">
-        <h2 class="section-title">لماذا تختار سطحة هيدروليك؟</h2>
-        <div class="features-grid">
-            <div class="feature-item">
-                <img src="/assets/images/safety-icon.png" alt="أمان">
-                <h3>أمان تام</h3>
-                <p>نضمن نقل سيارتك بأعلى معايير الأمان باستخدام أحدث التقنيات.</p>
-            </div>
-            <div class="feature-item">
-                <img src="/assets/images/speed-icon.png" alt="سرعة">
-                <h3>سرعة استجابة</h3>
-                <p>فريقنا مستعد للاستجابة لطلبك في أسرع وقت ممكن، 24/7.</p>
-            </div>
-            <div class="feature-item">
-                <img src="/assets/images/experience-icon.png" alt="خبرة">
-                <h3>سائقون محترفون</h3>
-                <p>فريق من السائقين ذوي الخبرة لضمان رحلة آمنة وفعالة لسيارتك.</p>
-            </div>
-        </div>
-    </section>
-    #}
 </main>
 {% endblock %}
-
