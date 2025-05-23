@@ -1,1 +1,15 @@
+{#
+  هذا الملف هو قالب تخطيط (Layout) عام مصمم للصفحات الثابتة (Static Pages).
+  يُستخدم لصفحات مثل "سياسة الخصوصية"، "شروط الاستخدام"، "حولنا"، أو أي صفحة
+  محتوى لا تتبع هيكل المدونة أو الصفحة الرئيسية.
+  يرث من التخطيط الأساسي (`base.njk`) ويتوقع أن يتم تمرير محتوى الصفحة إليه.
+#}
+{% extends "base.njk" %}
+
+{% block content %}
+<main class="container page-content">
+    <h1 class="page-title">{{ title }}</h1>
+    {{ content | safe }} {# هنا يتم عرض محتوى صفحة Markdown أو Nunjucks #}
+</main>
+{% endblock %}
 
